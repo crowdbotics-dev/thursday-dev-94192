@@ -8,6 +8,24 @@ function api_docs_schema_retrieve(payload) {
     params: { lang: payload.lang }
   })
 }
+function api_v1_job_list(payload) {
+  return thursdaydevAPI.get(`/api/v1/job/`)
+}
+function api_v1_job_create(payload) {
+  return thursdaydevAPI.post(`/api/v1/job/`, payload.data)
+}
+function api_v1_job_retrieve(payload) {
+  return thursdaydevAPI.get(`/api/v1/job/${payload.id}/`)
+}
+function api_v1_job_update(payload) {
+  return thursdaydevAPI.put(`/api/v1/job/${payload.id}/`, payload.data)
+}
+function api_v1_job_partial_update(payload) {
+  return thursdaydevAPI.patch(`/api/v1/job/${payload.id}/`, payload.data)
+}
+function api_v1_job_destroy(payload) {
+  return thursdaydevAPI.delete(`/api/v1/job/${payload.id}/`)
+}
 function api_v1_login_create(payload) {
   return thursdaydevAPI.post(`/api/v1/login/`, payload.data)
 }
@@ -52,6 +70,12 @@ function rest_auth_user_partial_update(payload) {
 }
 export const apiService = {
   api_docs_schema_retrieve,
+  api_v1_job_list,
+  api_v1_job_create,
+  api_v1_job_retrieve,
+  api_v1_job_update,
+  api_v1_job_partial_update,
+  api_v1_job_destroy,
   api_v1_login_create,
   api_v1_signup_create,
   rest_auth_login_create,
